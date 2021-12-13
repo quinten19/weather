@@ -1,0 +1,51 @@
+<title>USAFE TFU App Page</title>
+<h1>Soil Strength Calculator</h1>
+
+<form method="post" action="{{ url_for('operation_result') }}" id="calculator_form">
+	<label for="soilmoisture">Soil Moisture</label>
+	<input type="text" name="soilmoisture" id="soilmoisture">
+	<br/>
+	<label for="soiltype">Soil Type</label>
+	<select id="soiltype" name="soiltype">
+		<option value="SW">SW</option>
+		<option value="SP">SP</option>
+		<option value="SM">SM</option>
+		<option value="SC">SC</option>
+		<option value="SM-SC">SM-SC</option>
+		<option value="CL">CL</option>
+		<option value="ML">ML</option>
+		<option value="CLML">CLML</option>
+		<option value="CH">CH</option>
+		<option value="MH">MH</option>
+		<option value="OL">OL</option>
+		<option value="OH">OH</option>
+	</select>
+	<br/>
+	<input type="submit" value="Submit"/>
+	<input type="reset" value="RESET" style="color: red;"/>
+</form>
+{% if calculation_success == True%}
+	<br/>
+	<p>The soil strength for {{soiltype}} with {{soilmoisture}} is: {{result}} kPa</p>
+{% endif %}
+
+<p>If you have any questions, comments, or concerns, please reach out to Lt Williams</p>
+<br/>
+<h3>UCSC Soil Descriptions</h3>
+<p>SW: This group comprises well-graded gravelly and sandy soils having little or no non-plastic fines.</p>
+<p>SP: This group comprises poorly-graded gravels and sands containing little or no non-plastic fines.</p>
+<p>SM: This group comprises gravels or sands with fines having low or no plasticity.</p>
+<p>SC: This group comprises sandy soils with fines that have either low or high plasticity. The gradation 
+of the materials is not considered significant and both well- and poorly- graded materials are included.</p>
+<p>SM-SC: A borderline soil that exhibits characteristics of both SM and SC soil groups. The SM soil group
+comprises silty sands while the SC group comprises clayey sands.</p>
+<p>CL: Primarily inorganic clays with low liquid limit (i.e. less than 50).</p>
+<p>ML: This group comprises predominantly silty materials and micaceous or diatomaceous soils with low liquid limits.</p>
+<p>CLML: This grroup comprises a borderline soil that exhibits characteristics of both CL and ML soil groups. The CL
+soil comprises low plasticity clays and the ML soil group comprises silt with low plasticity.</p>
+<p>CH: This group comprises predominantly primarily inorganic clays with high liquid limit (i.e. greater than 50).</p>
+<p>MH: This group comprises predominantly silty materials and micaceious or diatomaceous soils with high liquid limits.</p>
+<p>OL: This group is characterized by the presence of organic matter. Organic silts and clays are classified in this group
+if they have materials with low plasticity.</p>
+<p>OH: This group is characterized by the presence of organic mateer. Organic silts and clays are classified in this group
+if they have materials with high plasticity.</p>
